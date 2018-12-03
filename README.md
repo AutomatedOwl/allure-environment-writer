@@ -1,7 +1,7 @@
 # allure-environment-writer
 
 Java library which allows to write environment.xml file into allure-results directory.
-Currently, the library supports Allure report with either TestNG or TestNG. It would allow you:
+Currently, the library supports Allure report with either JUnit or TestNG. It would allow you:
 
 * Easily write the environment.xml file to allure-results directory in any stage of your test.
 * Flexible path of 'allure-results' directory.
