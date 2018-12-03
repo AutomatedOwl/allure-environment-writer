@@ -7,7 +7,36 @@ Currently, the library supports Allure report with either TestNG or TestNG. It w
 * Flexible path of 'allure-results' directory.
 * Use ImmutableMap to create immutable set of values for the environment to contain.
 
-### Example of common usage:
+### Example of common usage (default path is target/allure-results):
+
+```
+import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
+
+public class SomeTests {
+
+    @BeforeSuite
+    void setAllureEnvironment() {
+        allureEnvironmentWriter(
+                ImmutableMap.<String, String>builder()
+                        .put("Browser", "Chrome")
+                        .put("Browser.Version", "70.0.3538.77")
+                        .put("URL", "http://testjs.site88.net")
+                        .build());
+    }
+
+    @Test
+    void sanityOneTest() {
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    void sanityTwoTest() {
+        Assert.assertTrue(true);
+    }
+}
+```
+
+### Example of usage with customized allure-results path:
 
 ```
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
@@ -26,12 +55,7 @@ public class SomeTests {
     }
 
     @Test
-    void sanityOneTest() {
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    void sanityTwoTest() {
+    void someTest() {
         Assert.assertTrue(true);
     }
 }
